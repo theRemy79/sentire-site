@@ -114,3 +114,30 @@ name/domain and host, update release copy/terms and actual download availability
 then configure the origin and production purchase service before deploying.
 
 See [STRIPE_INTEGRATION.md](STRIPE_INTEGRATION.md) for the purchase/fulfillment plan.
+
+## Current app and purchase-service integration
+
+The companion app now requires a valid test license and a local profile name.
+Its purchase receipt delivers the complete offline activation token and displays
+Sentire's internal order ID; new Stripe payment metadata also includes `order_id`.
+A local sandbox purchase and activation have been exercised. Production checkout,
+license email and customer recovery are still unfinished. The app includes an
+operator-only sandbox recovery script; its keys, orders and licenses stay outside
+this static website repository.
+
+For actual Stripe sandbox testing, start the companion service with its hidden-input
+launcher instead of the mock command above:
+
+```sh
+cd ../sentire
+.venv/bin/python scripts/start-stripe-sandbox.py
+```
+
+Keep Stripe CLI forwarding to `http://127.0.0.1:8860/webhook` running. The website
+local preview hands off to that same service; it never receives Stripe secret keys
+or hearing records. Public `origin` and `checkoutUrl` remain unconfigured. Existing
+website release/FAQ copy needs a release review before public purchasing is enabled.
+
+The existing vector wordmark is `public/assets/sentire-logo.svg`. A matching
+**920 × 256 transparent PNG** is available at `public/assets/sentire-logo.png` for
+services such as Stripe that do not accept SVG uploads.
