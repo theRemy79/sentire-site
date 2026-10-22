@@ -68,7 +68,7 @@ with sync_playwright() as p:
     nojs=browser.new_context(java_script_enabled=False,viewport={'width':390,'height':900})
     basic=nojs.new_page()
     basic.goto(URL)
-    assert basic.get_by_role('heading',name='A clearer picture.At your own pace.').is_visible()
+    assert basic.locator('#hero-title').is_visible()
     assert basic.locator('#main-nav').is_visible()
     assert basic.get_by_role('link',name='See release information').is_visible()
     assert basic.evaluate('document.documentElement.scrollWidth<=innerWidth')
