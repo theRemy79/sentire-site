@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "node scripts/serve.mjs --local-preview",
     "build": "node scripts/build.mjs",
     "preview": "node scripts/serve.mjs",
-    "check": "node --check public/site.js && node --check scripts/build.mjs && node --check scripts/serve.mjs && node --test tests/*.test.mjs"
+    "check": "node --check public/site.js && node --check public/guide/guide.js && node --check scripts/build.mjs && node --check scripts/serve.mjs && node --test tests/*.test.mjs"
   }
 }

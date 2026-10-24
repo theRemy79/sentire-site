@@ -141,3 +141,59 @@ website release/FAQ copy needs a release review before public purchasing is enab
 The existing vector wordmark is `public/assets/sentire-logo.svg`. A matching
 **920 × 256 transparent PNG** is available at `public/assets/sentire-logo.png` for
 services such as Stripe that do not accept SVG uploads.
+
+## Searchable app guide
+
+The new **How to use Sentire** link opens `/guide/` (local preview:
+http://127.0.0.1:8791/guide/). The guide has 18 chapters covering activation,
+recommended entry order, PDF/image import and review, every measurement option,
+source calibration, speech point entry, reported/calculated gaps, history,
+comparisons, editing, exports, restore and privacy. Search supports topic aliases,
+shareable `?q=` URLs, a clear/no-results state and Ctrl/Cmd+K. All instructions
+remain readable without JavaScript.
+
+Media is captured from the actual app using temporary fictional records only:
+10 screenshots and three short H.264 MP4 walkthroughs, each with a poster,
+English VTT captions and a written walkthrough. No personal medical report,
+customer token or existing app database is used. Provenance and video dimensions
+are recorded in `public/assets/tutorial/`.
+
+```sh
+# Capture new screenshots/videos from the sibling app checkout:
+PLAYWRIGHT_BROWSERS_PATH=../sentire/desktop/.cache/playwright \
+  ../sentire/.venv/bin/python scripts/capture-tutorial.py
+
+# Check search, deep links, zoom/focus, video playback/seeking, and layouts:
+PLAYWRIGHT_BROWSERS_PATH=../sentire/desktop/.cache/playwright \
+  ../sentire/.venv/bin/python scripts/check-guide.py
+```
+
+Capture requires ffmpeg in addition to the app's development dependencies. The
+capture script handles the installed Playwright ffmpeg path. The guide test starts
+and stops an isolated preview server, without opening any app data. The local
+server supports HTML directory routes, MP4 MIME/byte-range requests and VTT
+captions. The build emits `dist/guide/index.html` and includes the guide in the
+sitemap when a public origin is configured. No hosting identity, production
+checkout or public deployment was added.
+
+## License portal (local sandbox)
+
+`npm run dev` proxies `/license/*` to the purchase service on 127.0.0.1:8860.
+Restart the preview process after updating `scripts/serve.mjs`. This provides the
+intended same-origin portal at http://127.0.0.1:8791/license/. The static release
+build contains an informational placeholder; it cannot run email authentication
+or licensing on its own. Public hosting needs an HTTPS reverse proxy/backend.
+
+The field guide explains online email verification, two computer activations,
+offline subsequent use, recovery, replacement support, and preservation of older
+purchases. Real email/domain configuration is still pending; local previews are
+private to the purchase service. See the sibling app's
+`docs/LICENSING_PORTAL.md` for provider environment variables and operator steps.
+`SENTIRE_LOCAL_COMMERCE_PORT` overrides the loopback upstream only for isolated
+preview tests; its normal value is 8860. No credentials go in site configuration.
+
+The current customer licensing flow is purchase → automatic license email → paste
+into Sentire. The app registers one of two computers in the background and verifies
+its saved activation offline afterward. `/license/` resends the original license
+to the checkout email; no connection codes or website license generation are part
+of the normal flow. Local checks use private email previews, never real delivery.

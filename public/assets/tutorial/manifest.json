@@ -1,0 +1,88 @@
+{
+  "activation.webp": {
+    "width": 1280,
+    "height": 900,
+    "bytes": 47284
+  },
+  "backup.webp": {
+    "width": 1280,
+    "height": 900,
+    "bytes": 48970
+  },
+  "compare-backup-poster.webp": {
+    "width": 1280,
+    "height": 900,
+    "bytes": 33188
+  },
+  "comparison.webp": {
+    "width": 1280,
+    "height": 900,
+    "bytes": 46892
+  },
+  "editor.webp": {
+    "width": 1280,
+    "height": 900,
+    "bytes": 51126
+  },
+  "fictional-report.webp": {
+    "width": 928,
+    "height": 1200,
+    "bytes": 25674
+  },
+  "import-review-poster.webp": {
+    "width": 1280,
+    "height": 900,
+    "bytes": 32424
+  },
+  "import-review.webp": {
+    "width": 1280,
+    "height": 900,
+    "bytes": 56046
+  },
+  "manual-entry-poster.webp": {
+    "width": 1280,
+    "height": 900,
+    "bytes": 32614
+  },
+  "overview.webp": {
+    "width": 1280,
+    "height": 900,
+    "bytes": 41302
+  },
+  "reported-gap.webp": {
+    "width": 648,
+    "height": 706,
+    "bytes": 20406
+  },
+  "speech.webp": {
+    "width": 648,
+    "height": 391,
+    "bytes": 19516
+  },
+  "timeline.webp": {
+    "width": 1280,
+    "height": 900,
+    "bytes": 39598
+  },
+  "compare-backup.mp4": {
+    "codec_name": "h264",
+    "width": 1280,
+    "height": 900,
+    "duration": "18.266667",
+    "bytes": 185434
+  },
+  "import-review.mp4": {
+    "codec_name": "h264",
+    "width": 1280,
+    "height": 900,
+    "duration": "15.466667",
+    "bytes": 227634
+  },
+  "manual-entry.mp4": {
+    "codec_name": "h264",
+    "width": 1280,
+    "height": 900,
+    "duration": "12.333333",
+    "bytes": 188838
+  }
+}

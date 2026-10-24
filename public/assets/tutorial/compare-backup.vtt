@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00.000 --> 00:03.500
+Compare tests: choose a baseline and comparison test.
+
+00:03.500 --> 00:05.600
+Filter to the right ear to inspect one series.
+
+00:05.600 --> 00:09.800
+Export the selected tests as a PDF report.
+
+00:09.800 --> 00:14.100
+Open Backup & export and download a SQLite database backup.
+
+00:14.100 --> 00:18.200
+Choose the backup to preview it. Replacement requires a separate confirmation.
