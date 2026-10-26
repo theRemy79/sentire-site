@@ -10,8 +10,8 @@ test('published defaults contain no localhost checkout or invented releases',()=
   assert.equal(config.windowsDownloadUrl,'');
 });
 test('test purchase route is explicitly enabled only for local preview',()=>{
-  assert.equal(configuration(empty,{local:true}).checkoutUrl,'/checkout');
-  assert.equal(configuration(empty,{local:true}).checkoutMode,'local-test');
+  assert.equal(configuration({...empty},{local:true}).checkoutUrl,'/checkout');
+  assert.equal(configuration({...empty},{local:true}).checkoutMode,'local-test');
 });
 test('live checkout needs a canonical HTTPS origin and a safe checkout URL',()=>{
   assert.throws(()=>configuration({...empty,checkoutUrl:'https://checkout.example.com/buy'}));
@@ -23,4 +23,9 @@ test('live checkout needs a canonical HTTPS origin and a safe checkout URL',()=>
 test('public downloads reject unsafe schemes and embedded credentials',()=>{
   assert.throws(()=>configuration({...empty,linuxDownloadUrl:'file:///tmp/app'}));
   assert.throws(()=>configuration({...empty,windowsDownloadUrl:'https://user:secret@example.com/app'}));
+});
+
+test('introductory price is 14.95 and local checkout is active',()=>{
+  const config=configuration(empty,{local:true});
+  assert.equal(config.checkoutUrl,'/checkout');assert.equal(config.checkoutMode,'local-test');assert.equal(config.price,14.95);
 });

@@ -60,15 +60,15 @@ async function configurePurchasing() {
       purchase.href = '/checkout';
       purchase.target = '_blank';
       purchase.rel = 'noopener noreferrer';
-      purchase.textContent = 'Try the $29 test checkout ↗';
-      document.querySelector('#purchase-note').textContent = 'Explore the purchase flow and activate a test license. No payment is collected in the local simulator.';
+      purchase.textContent = 'Try the $14.95 test checkout ↗';
+      document.querySelector('#purchase-note').textContent = 'Explore the purchase flow and activate a test license. Stripe sandbox checkout uses test cards and makes no real charges.';
       document.querySelector('#test-badge').hidden = false;
     } else if (config.checkoutMode === 'live' && config.checkoutUrl) {
       const url = new URL(config.checkoutUrl);
       if (url.protocol !== 'https:' || url.username || url.password) return;
       purchase.href = url.href;
       purchase.rel = 'noopener noreferrer';
-      purchase.textContent = 'Buy Sentire — $29 ↗';
+      purchase.textContent = 'Buy Sentire — $14.95 ↗';
       document.querySelector('#purchase-note').textContent = 'Continue to secure checkout. Your license is issued after payment is confirmed.';
     }
     for (const platform of ['linux','windows']) {
@@ -78,7 +78,7 @@ async function configurePurchasing() {
       if (url.protocol !== 'https:' || url.username || url.password) continue;
       const link = document.querySelector('[data-'+platform+'-download]');
       link.href = url.href;link.rel = 'noopener noreferrer';link.hidden = false;
-      document.querySelector('[data-'+platform+'-status]').textContent = 'Public release available';
+      document.querySelector('[data-'+platform+'-status]').textContent = 'Download available';
       link.closest('article').querySelector('.platform-label').textContent = 'AVAILABLE';
     }
   } catch { /* Static release information stays visible when configuration is unavailable. */ }

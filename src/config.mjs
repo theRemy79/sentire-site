@@ -12,6 +12,6 @@ export function configuration(raw, {local = false} = {}) {
   const linuxDownloadUrl = HTTPS(raw.linuxDownloadUrl);
   const windowsDownloadUrl = HTTPS(raw.windowsDownloadUrl);
   if (checkoutUrl && !origin) throw Error('Configure the real site origin before enabling checkout.');
-  return {origin, price: 29, currency: 'USD', checkoutMode: local ? 'local-test' : checkoutUrl ? 'live' : 'upcoming',
+  return {origin, price: 14.95, currency: 'USD', checkoutMode: local ? 'local-test' : checkoutUrl ? 'live' : 'upcoming',
     checkoutUrl: local ? '/checkout' : checkoutUrl, linuxDownloadUrl, windowsDownloadUrl};
 }

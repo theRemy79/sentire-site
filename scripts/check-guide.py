@@ -100,10 +100,10 @@ try:
         for width in (390,768,1440):
             page.set_viewport_size({'width':width,'height':1000})
             page.goto(base+'/',wait_until='networkidle')
-            assert page.get_by_role('link',name='How to use Sentire',include_hidden=True).count()==1
+            assert page.get_by_role('link',name='Field guide',include_hidden=True).count()==1
             if width==390:
                 page.get_by_role('button',name='Toggle navigation').click()
-                assert page.get_by_role('link',name='How to use Sentire').is_visible()
+                assert page.get_by_role('link',name='Field guide').is_visible()
             assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),('homepage',width)
             page.goto(base+'/guide/',wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),width

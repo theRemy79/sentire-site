@@ -10,6 +10,6 @@
     "dev": "node scripts/serve.mjs --local-preview",
     "build": "node scripts/build.mjs",
     "preview": "node scripts/serve.mjs",
-    "check": "node --check public/site.js && node --check public/guide/guide.js && node --check scripts/build.mjs && node --check scripts/serve.mjs && node --test tests/*.test.mjs"
+    "check": "node --check public/site.js && node --check public/community.js && node --check public/downloads.js && node --check public/guide/guide.js && node --check scripts/build.mjs && node --check scripts/serve.mjs && node --test tests/*.test.mjs"
   }
 }

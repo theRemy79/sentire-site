@@ -6,7 +6,7 @@ import {configuration} from '../src/config.mjs';
 const local = process.argv.includes('--local-preview');
 const port = Number(process.env.PORT || 8791);
 const commercePort = Number(process.env.SENTIRE_LOCAL_COMMERCE_PORT || 8860);
-await build();
+const builtConfig = await build();
 const mime = {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.png':'image/png','.txt':'text/plain; charset=utf-8','.xml':'application/xml','.mp4':'video/mp4','.vtt':'text/vtt; charset=utf-8'};
 const server = http.createServer(async (req,res) => {
   res.setHeader('Cache-Control','no-store');
@@ -15,19 +15,20 @@ const server = http.createServer(async (req,res) => {
   res.setHeader('X-Frame-Options','DENY');
   res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'");
   // Local-only portal proxy: purchase service remains bound to loopback.
-  if (local && req.url.startsWith('/license/')) {
+  if (local && (req.url.startsWith('/license/') || req.url.startsWith('/community/'))) {
     if (req.headers.host !== `127.0.0.1:${port}` && req.headers.host !== `localhost:${port}`) {res.writeHead(400).end();return;}
     if (!['GET','HEAD','POST'].includes(req.method)) {res.writeHead(405).end();return;}
     const upstream = http.request({hostname:'127.0.0.1',port:commercePort,path:req.url,method:req.method,headers:{...req.headers,host:req.headers.host}},reply=>{
       res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);
     });
     upstream.setTimeout(20000,()=>upstream.destroy());
-    upstream.on('error',()=>{if(!res.headersSent)res.writeHead(503,{'Content-Type':'text/plain; charset=utf-8'});res.end('The local license service is not running. Start the purchase service, then reload this page.');});
+    upstream.on('error',()=>{if(!res.headersSent)res.writeHead(503,{'Content-Type':'text/plain; charset=utf-8'});res.end('The local Sentire service is not running. Start the purchase service, then reload this page.');});
     req.pipe(upstream);return;
   }
   if (!['GET','HEAD'].includes(req.method)) { res.writeHead(405,{'Allow':'GET, HEAD'}).end(); return; }
   try {
     const pathname = decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname);
+    if (pathname === '/beta/' || pathname === '/beta') {res.writeHead(301,{'Location':'/downloads/'}).end();return;}
     if (pathname === '/checkout' && local) {res.writeHead(303,{'Location':'http://127.0.0.1:8860/buy'}).end();return;}
     if (pathname === '/api/config.json') {
       const config = configuration(JSON.parse(await readFile(path.join(root,'site.config.json'),'utf8')),{local});

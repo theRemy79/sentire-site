@@ -16,7 +16,7 @@ with sync_playwright() as p:
     page.on('pageerror',lambda error:errors.append(str(error)))
     page.on('response',lambda response:errors.append(f'HTTP {response.status}: {response.url}') if response.status>=400 else None)
     page.goto(URL,wait_until='networkidle')
-    page.get_by_role('link',name='Try the $29 test checkout').wait_for()
+    page.get_by_role('link',name='Try the $14.95 test checkout').wait_for()
     assert page.locator('h1').count()==1
     assert page.locator('.nav-toggle').is_hidden()
     assert page.locator('img[src]').evaluate_all('(images)=>images.every(img=>img.loading==="lazy" || img.complete && img.naturalWidth>0)')
@@ -44,12 +44,7 @@ with sync_playwright() as p:
     page.get_by_role('button',name='Close screenshot').click()
     page.get_by_text('Is Sentire a hearing test?',exact=False).click()
     assert page.locator('.faq-list details').first.get_attribute('open') is not None
-    with context.expect_page() as new_page:
-        page.get_by_role('link',name='Try the $29 test checkout').click()
-    checkout=new_page.value
-    checkout.wait_for_url('http://127.0.0.1:8860/buy')
-    assert 'No payment collected' in checkout.locator('body').inner_text()
-    checkout.close()
+    assert page.locator('[data-purchase]').get_attribute('href')=='/checkout'
     for width in [360,390,600,768,1024,1440]:
         page.set_viewport_size({'width':width,'height':900})
         page.goto(URL,wait_until='networkidle')
@@ -70,9 +65,9 @@ with sync_playwright() as p:
     basic.goto(URL)
     assert basic.locator('#hero-title').is_visible()
     assert basic.locator('#main-nav').is_visible()
-    assert basic.get_by_role('link',name='See release information').is_visible()
+    assert basic.get_by_role('link',name='Get Sentire').is_visible()
     assert basic.evaluate('document.documentElement.scrollWidth<=innerWidth')
     nojs.close()
     context.close()
     browser.close()
-print('Passed: desktop/mobile layouts, real image loading, keyboard tabs, screenshot zoom/focus, FAQ, local checkout handoff, and no-JavaScript fallback.')
+print('Passed: desktop/mobile layouts, real image loading, keyboard tabs, screenshot zoom/focus, FAQ, checkout configuration, and no-JavaScript fallback.')
