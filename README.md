@@ -36,8 +36,10 @@ same-origin backend routing with HTTPS and secure session/proxy handling.
 
 ## Feedback and email
 
-Forward `support@getsentire.io` through Cloudflare Email Routing to your verified
-private inbox; no catch-all or invitation alias is needed. Preserve Resend outgoing
+Cloudflare Email Routing was enabled on October 27, 2026. The active
+`support@getsentire.io` rule forwards to the same verified private inbox as Operoso;
+end-to-end inbox delivery still needs a test. No catch-all or invitation alias is
+needed. Preserve Resend outgoing
 records under mail.getsentire.io. Set `SENTIRE_SUPPORT_NOTIFY_TO` server-side for
 operator alerts. Default development delivery is private .eml previews. Feedback
 is stored privately even if notification fails. No medical attachments are accepted.
@@ -61,8 +63,9 @@ fictional records; provenance is in public/assets/SCREENSHOTS.md and tutorial/.
 The SVG wordmark has a transparent 920×256 PNG at public/assets/sentire-logo.png.
 Do not commit private reports, orders, keys or mail previews.
 
-Linux has a live-only release candidate. Windows build execution/acceptance and
-public hosting/downloads remain outstanding. Customer builds use public HTTPS
+Linux and Windows have live-only release candidates. The website and commerce
+Worker are deployed at getsentire.io with checkout closed. Manual Windows acceptance
+and public download publication remain outstanding. Customer builds use public HTTPS
 purchase/guide/recovery URLs. Nothing is published or charged by building this website.
 
 ## Release preparation — October 26, 2026
@@ -82,3 +85,8 @@ Hosting target confirmed: Cloudflare for both the website and commerce. The Work
 companion app repository. Deploy staging first using its docs/CLOUDFLARE_SETUP.md;
 the Flask reference is not deployed through static Pages settings. Windows will use the companion
 repository’s GitHub Actions workflow. See the Cloudflare section of release readiness.
+
+
+October 27, 2026: support@getsentire.io now forwards to verified hello@seravio.io,
+which forwards to the operator's existing Gmail inbox. Feedback notifications retain
+the product alias. Transactional license sending remains on its existing domain.

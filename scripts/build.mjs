@@ -15,14 +15,14 @@ export async function build() {
   await mkdir(path.join(dist,'guide'),{recursive:true});
   const guideSEO = config.origin ? `<link rel="canonical" href="${escape(config.origin)}/guide/"><meta property="og:url" content="${escape(config.origin)}/guide/">` : '<meta name="robots" content="noindex,follow">';
   await writeFile(path.join(dist,'guide/index.html'),(await readFile(path.join(root,'src/guide.html'),'utf8')).replace('{{SEO}}',guideSEO));
-  for (const slug of ['downloads','support','privacy','terms']) {
+  for (const slug of ['downloads','support','privacy','terms','releases']) {
     await mkdir(path.join(dist,slug),{recursive:true});
     const pageSEO = config.origin ? `<link rel="canonical" href="${escape(config.origin)}/${slug}/">` : '<meta name="robots" content="noindex,follow">';
     await writeFile(path.join(dist,slug,'index.html'),(await readFile(path.join(root,`src/${slug}.html`),'utf8')).replace('{{SEO}}',pageSEO));
   }
   await writeFile(path.join(dist,'api/config.json'),JSON.stringify(config));
   await writeFile(path.join(dist,'robots.txt'),config.origin ? `User-agent: *\nAllow: /\nSitemap: ${config.origin}/sitemap.xml\n` : 'User-agent: *\nDisallow: /\n');
-  if (config.origin) await writeFile(path.join(dist,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${escape(config.origin)}/</loc></url><url><loc>${escape(config.origin)}/guide/</loc></url>${['downloads','support','privacy','terms'].map(slug=>`<url><loc>${escape(config.origin)}/${slug}/</loc></url>`).join('')}</urlset>`);
+  if (config.origin) await writeFile(path.join(dist,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${escape(config.origin)}/</loc></url><url><loc>${escape(config.origin)}/guide/</loc></url>${['downloads','support','privacy','terms','releases'].map(slug=>`<url><loc>${escape(config.origin)}/${slug}/</loc></url>`).join('')}</urlset>`);
   console.log('Built sentire-site. '+(config.origin ? 'Public origin configured.' : 'Preview: no indexing, no live checkout.'));
   return config;
 }
