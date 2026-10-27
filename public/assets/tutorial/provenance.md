@@ -21,3 +21,12 @@ The activation screenshot was refreshed after adding the Field guide sidebar lin
 The guide’s import chapter now documents conservative colored bone-symbol detection
 and review requirements. The example videos remain fictional demonstrations, not
 a guarantee that every source symbol will be recognized.
+
+On 2026-10-26, `scripts/capture-point-click.py` recorded `point-click.mp4`
+and `point-click.webp` in the actual app with disposable fictional data and the
+existing synthetic report. Recording-only captions and a cursor ring were added
+in the browser; production CSP was unchanged. Assertions verify graph insertion,
+selection without duplication, Air-to-Bone change, retained type on re-selection,
+and exact level editing. No personal reports, keys or external email were used.
+
+On 2026-10-26, the existing tutorial screenshots and three walkthroughs were refreshed with `scripts/capture-tutorial.py` to match current app copy and plotting controls. Only generated fictional records, isolated keys and a synthetic report were used.

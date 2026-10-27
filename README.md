@@ -19,8 +19,8 @@ Restart the preview after changes to scripts/serve.mjs. Static edits need a rebu
 - `/guide/`: 18 searchable chapters, fictional screenshots and captioned videos,
   including emailed-license activation and recovery.
 - `/support/`: text-only feedback, troubleshooting and support contact.
-- `/privacy/`, `/terms/`: launch drafts describing actual data flows and personal
-  licensing; finalize operator/hosting and legal/purchase policy before publishing.
+- `/privacy/`, `/terms/`: customer-facing data-flow and personal-license policies;
+  review actual operator/hosting and purchase details before publishing.
 
 `site.config.json` contains public URLs only. `origin` enables public canonical
 links/indexing. `checkoutUrl` is the real HTTPS service URL once deployed; until
@@ -61,6 +61,24 @@ fictional records; provenance is in public/assets/SCREENSHOTS.md and tutorial/.
 The SVG wordmark has a transparent 920×256 PNG at public/assets/sentire-logo.png.
 Do not commit private reports, orders, keys or mail previews.
 
-Linux is locally built; Windows packaging/validation and public hosting/downloads
-are outstanding. App purchase/guide/recovery URLs still require public-release
-configuration. Nothing is published or charged by building this website.
+Linux has a live-only release candidate. Windows build execution/acceptance and
+public hosting/downloads remain outstanding. Customer builds use public HTTPS
+purchase/guide/recovery URLs. Nothing is published or charged by building this website.
+
+## Release preparation — October 26, 2026
+
+Customer copy and tutorial media now match the simplified point-and-click editor.
+The source-tools chapter shows selecting an existing point and changing Air/Bone
+in its row; it does not ask users to calibrate/crop the source image.
+
+The companion app has a Linux live-only release candidate and a manual Windows
+build workflow. Public hosting, live Price ID and Windows acceptance still need
+completion. Keep download links hidden until verified artifacts are publicly
+hosted. See [release readiness](../sentire/docs/RELEASE_READINESS.md) for production
+routes, environment names and private promotion-code setup. Coupon codes are
+configured in Stripe and never included in public website copy.
+
+Hosting target confirmed: Cloudflare for both the website and commerce. The Workers/D1/Resend-HTTP backend is implemented and locally validated in the
+companion app repository. Deploy staging first using its docs/CLOUDFLARE_SETUP.md;
+the Flask reference is not deployed through static Pages settings. Windows will use the companion
+repository’s GitHub Actions workflow. See the Cloudflare section of release readiness.

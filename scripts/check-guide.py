@@ -38,15 +38,20 @@ try:
     with urllib.request.urlopen(base+'/assets/tutorial/manual-entry.vtt') as response:
         assert response.headers['Content-Type'].startswith('text/vtt')
         assert response.read().startswith(b'WEBVTT')
+    for asset,mime in [('point-click.mp4','video/mp4'),('point-click.webp','image/webp'),('point-click.vtt','text/vtt')]:
+        with urllib.request.urlopen(base+'/assets/tutorial/'+asset) as response:
+            assert response.status==200
+            assert response.headers['Content-Type'].startswith(mime)
     with sync_playwright() as p:
-        browser=p.chromium.launch()
+        executable=next((Path.home()/'.cache/ms-playwright').glob('chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell'),None)
+        browser=p.chromium.launch(**({'executable_path':str(executable)} if executable else {}))
         context=browser.new_context(viewport={'width':1440,'height':1050},device_scale_factor=1)
         page=context.new_page();errors=[]
         page.on('pageerror',lambda e:errors.append(str(e)))
         page.on('response',lambda r:errors.append(f'{r.status} {r.url}') if r.status>=400 else None)
         page.goto(base+'/guide/',wait_until='networkidle')
         assert page.locator('.chapter').count()==18
-        assert page.locator('video').count()==3
+        assert page.locator('video').count()==4
         # Every fragment and locally referenced image/media asset resolves.
         missing=page.evaluate("""() => [...document.querySelectorAll('a[href^="#"]')].map(a=>a.hash.slice(1)).filter(id=>id&&!document.getElementById(id))""")
         assert not missing,missing
@@ -121,11 +126,11 @@ try:
         basic=nojs.new_page();basic.goto(base+'/guide/')
         assert basic.locator('.chapter:visible').count()==18
         assert basic.locator('noscript').is_visible()
-        assert basic.locator('video').count()==3
+        assert basic.locator('video').count()==4
         nojs.close()
         assert not errors,errors
         browser.close()
-    print('Guide passed: 18 chapters, search/aliases/shared queries, chapter links, zoom/focus, three playable captioned videos, byte-range serving, desktop/mobile layouts and no-JavaScript fallback.')
+    print('Guide passed: 18 chapters, search/aliases/shared queries, chapter links, zoom/focus, four playable captioned videos, byte-range serving, desktop/mobile layouts and no-JavaScript fallback.')
 finally:
     process.terminate()
     try:process.wait(timeout=5)

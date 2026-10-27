@@ -60,8 +60,8 @@ async function configurePurchasing() {
       purchase.href = '/checkout';
       purchase.target = '_blank';
       purchase.rel = 'noopener noreferrer';
-      purchase.textContent = 'Try the $14.95 test checkout ↗';
-      document.querySelector('#purchase-note').textContent = 'Explore the purchase flow and activate a test license. Stripe sandbox checkout uses test cards and makes no real charges.';
+      purchase.textContent = 'Buy Sentire — $14.95 ↗';
+      document.querySelector('#purchase-note').textContent = 'Sandbox checkout: no real charges. Use sandbox card details.';
       document.querySelector('#test-badge').hidden = false;
     } else if (config.checkoutMode === 'live' && config.checkoutUrl) {
       const url = new URL(config.checkoutUrl);
@@ -70,6 +70,10 @@ async function configurePurchasing() {
       purchase.rel = 'noopener noreferrer';
       purchase.textContent = 'Buy Sentire — $14.95 ↗';
       document.querySelector('#purchase-note').textContent = 'Continue to secure checkout. Your license is issued after payment is confirmed.';
+      if (config.paymentEnvironment === 'test') {
+        document.querySelector('#test-badge').hidden = false;
+        document.querySelector('#purchase-note').textContent = 'Sandbox checkout: no real charges. Use sandbox card details.';
+      }
     }
     for (const platform of ['linux','windows']) {
       const download = config[platform+'DownloadUrl'];

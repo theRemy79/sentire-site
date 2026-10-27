@@ -2,27 +2,27 @@
   "activation.webp": {
     "width": 1280,
     "height": 900,
-    "bytes": 47284
+    "bytes": 52652
   },
   "backup.webp": {
     "width": 1280,
     "height": 900,
-    "bytes": 48970
+    "bytes": 50928
   },
   "compare-backup-poster.webp": {
     "width": 1280,
     "height": 900,
-    "bytes": 33188
+    "bytes": 33624
   },
   "comparison.webp": {
     "width": 1280,
     "height": 900,
-    "bytes": 46892
+    "bytes": 48886
   },
   "editor.webp": {
     "width": 1280,
     "height": 900,
-    "bytes": 51126
+    "bytes": 56100
   },
   "fictional-report.webp": {
     "width": 928,
@@ -32,57 +32,69 @@
   "import-review-poster.webp": {
     "width": 1280,
     "height": 900,
-    "bytes": 32424
+    "bytes": 37236
   },
   "import-review.webp": {
     "width": 1280,
     "height": 900,
-    "bytes": 56046
+    "bytes": 61456
   },
   "manual-entry-poster.webp": {
     "width": 1280,
     "height": 900,
-    "bytes": 32614
+    "bytes": 36830
   },
   "overview.webp": {
     "width": 1280,
     "height": 900,
-    "bytes": 41302
+    "bytes": 42872
   },
   "reported-gap.webp": {
     "width": 648,
-    "height": 706,
-    "bytes": 20406
+    "height": 705,
+    "bytes": 21572
   },
   "speech.webp": {
     "width": 648,
-    "height": 391,
-    "bytes": 19516
+    "height": 392,
+    "bytes": 19490
   },
   "timeline.webp": {
     "width": 1280,
     "height": 900,
-    "bytes": 39598
+    "bytes": 41136
   },
   "compare-backup.mp4": {
     "codec_name": "h264",
     "width": 1280,
     "height": 900,
-    "duration": "18.266667",
-    "bytes": 185434
+    "duration": "18.333333",
+    "bytes": 173063
   },
   "import-review.mp4": {
     "codec_name": "h264",
     "width": 1280,
     "height": 900,
-    "duration": "15.466667",
-    "bytes": 227634
+    "duration": "15.666667",
+    "bytes": 245020
   },
   "manual-entry.mp4": {
     "codec_name": "h264",
     "width": 1280,
     "height": 900,
     "duration": "12.333333",
-    "bytes": 188838
+    "bytes": 203665
+  },
+  "point-click.webp": {
+    "width": 1440,
+    "height": 1200,
+    "bytes": 81568
+  },
+  "point-click.mp4": {
+    "codec_name": "h264",
+    "width": 1440,
+    "height": 1000,
+    "duration": "21.933333",
+    "bytes": 662007
   }
 }
