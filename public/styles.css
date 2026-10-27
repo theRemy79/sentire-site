@@ -6,3 +6,5 @@
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}.button:hover{transform:none}}
 
 .site-footer .footer-links{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:8px 18px}.site-footer .footer-links a{display:inline-block;white-space:nowrap}
+
+.dynamic-price{font-size:clamp(32px,6vw,80px)}

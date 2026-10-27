@@ -60,7 +60,7 @@ async function configurePurchasing() {
       purchase.href = '/checkout';
       purchase.target = '_blank';
       purchase.rel = 'noopener noreferrer';
-      purchase.textContent = 'Buy Sentire — $14.95 ↗';
+      purchase.textContent = config.unitAmount ? 'Buy Sentire — '+new Intl.NumberFormat(undefined,{style:'currency',currency:'USD'}).format(config.unitAmount/100)+' ↗' : 'View current price ↗';
       document.querySelector('#purchase-note').textContent = 'Sandbox checkout: no real charges. Use sandbox card details.';
       document.querySelector('#test-badge').hidden = false;
     } else if (config.checkoutMode === 'live' && config.checkoutUrl) {
@@ -68,7 +68,7 @@ async function configurePurchasing() {
       if (url.protocol !== 'https:' || url.username || url.password) return;
       purchase.href = url.href;
       purchase.rel = 'noopener noreferrer';
-      purchase.textContent = 'Buy Sentire — $14.95 ↗';
+      purchase.textContent = config.unitAmount ? 'Buy Sentire — '+new Intl.NumberFormat(undefined,{style:'currency',currency:'USD'}).format(config.unitAmount/100)+' ↗' : 'View current price ↗';
       document.querySelector('#purchase-note').textContent = 'Continue to secure checkout. Your license is issued after payment is confirmed.';
       if (config.paymentEnvironment === 'test') {
         document.querySelector('#test-badge').hidden = false;

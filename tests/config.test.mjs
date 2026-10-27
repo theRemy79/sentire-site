@@ -25,7 +25,7 @@ test('public downloads reject unsafe schemes and embedded credentials',()=>{
   assert.throws(()=>configuration({...empty,windowsDownloadUrl:'https://user:secret@example.com/app'}));
 });
 
-test('introductory price is 14.95 and local checkout is active',()=>{
+test('static pricing is unavailable until fetched and local checkout is active',()=>{
   const config=configuration(empty,{local:true});
-  assert.equal(config.checkoutUrl,'/checkout');assert.equal(config.checkoutMode,'local-test');assert.equal(config.price,14.95);
+  assert.equal(config.checkoutUrl,'/checkout');assert.equal(config.checkoutMode,'local-test');assert.equal(config.price,null);assert.equal(config.unitAmount,null);
 });
