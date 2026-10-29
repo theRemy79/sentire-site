@@ -82,7 +82,7 @@ async function configurePurchasing() {
       if (url.protocol !== 'https:' || url.username || url.password) continue;
       const link = document.querySelector('[data-'+platform+'-download]');
       link.href = url.href;link.rel = 'noopener noreferrer';link.hidden = false;
-      document.querySelector('[data-'+platform+'-status]').textContent = 'Download available';
+      if (platform !== 'linux') document.querySelector('[data-'+platform+'-status]').textContent = 'Download available';
       link.closest('article').querySelector('.platform-label').textContent = 'AVAILABLE';
     }
   } catch { /* Static release information stays visible when configuration is unavailable. */ }

@@ -1,6 +1,6 @@
 {
   "origin": "https://getsentire.io",
-  "checkoutUrl": "",
-  "linuxDownloadUrl": "",
+  "checkoutUrl": "https://getsentire.io/buy",
+  "linuxDownloadUrl": "https://snapcraft.io/sentire",
   "windowsDownloadUrl": ""
 }

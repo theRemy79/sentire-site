@@ -90,3 +90,13 @@ repository’s GitHub Actions workflow. See the Cloudflare section of release re
 October 27, 2026: support@getsentire.io now forwards to verified hello@seravio.io,
 which forwards to the operator's existing Gmail inbox. Feedback notifications retain
 the product alias. Transactional license sending remains on its existing domain.
+
+## Public launch — October 29, 2026
+
+Sentire 0.2.0 revision 2 is available on the Snap Store stable channel at
+https://snapcraft.io/sentire. Linux x86_64 users install with
+`sudo snap install sentire`. The website links to that listing and production
+purchasing is enabled at https://getsentire.io/buy. The current Stripe catalog
+price is $14.95 USD, one time, including two computer activations.
+Windows remains unavailable; the download and purchase pages say so.
+This launch status supersedes the historical preparation notes above.
