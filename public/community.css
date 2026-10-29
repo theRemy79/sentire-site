@@ -4,3 +4,5 @@
 
 /* Give support guidance a readable rhythm beside the feedback form. */
 .support-help>h2:first-child{margin-top:0}.support-help>p{margin:0 0 1.35rem}.support-help>details{padding:1.1rem 0}.support-help>details p{margin:.8rem 0 .25rem;line-height:1.85}.support-help>details:last-of-type{margin-bottom:1.75rem}.support-help summary{line-height:1.55}.support-help>p:last-child{margin-bottom:0}
+
+.download-card .download-platform{padding:22px 0}.download-card .download-platform+.download-platform{border-top:1px solid #d8e2dd}.download-card h3{margin:0 0 8px}.download-card .download-platform>p{margin:0 0 16px}.store-badge{display:block;width:182px;max-width:100%;border-radius:6px}.store-badge img{display:block;width:182px;max-width:100%;height:56px;object-fit:contain}.store-badge:focus-visible{outline:3px solid #326c65;outline-offset:5px}.store-badge-disabled{filter:grayscale(1);opacity:.38;cursor:default}.download-card .download-platform>.small-note{margin:12px 0 0}.download-card .install-help{border:0;padding:14px 0 0;font-size:13px}.download-card .install-help p{margin:10px 0 0}.download-card .download-license{border-top:1px solid #d8e2dd;padding-top:20px;margin:0}

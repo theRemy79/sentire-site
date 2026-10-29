@@ -9,7 +9,10 @@
    const url=new URL(value);if(url.protocol!=='https:'||url.username||url.password)return;
    const link=document.querySelector('[data-'+platform+'-download]');
    link.href=url.href;link.rel='noopener noreferrer';link.hidden=false;
-   if(platform!=='linux')document.querySelector('[data-'+platform+'-status]').textContent='Download available. See the release notes for installation requirements.';
+   if(platform==='windows'){
+    document.querySelector('[data-windows-status]').textContent='Available now.';
+    document.querySelector('.store-badge-disabled').hidden=true;
+   }
   }
  }catch{/* Keep the honest availability message. */}
 })();
