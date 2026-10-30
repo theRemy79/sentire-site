@@ -1,4 +1,4 @@
-I’ve had hearing loss all my life. Over the past 10–11 years, my hearing has fluctuated. Recently, I was diagnosed with incomplete partition type II, or IP-II.
+I’ve had hearing loss all my life. Over the past 10–11 years, my hearing has fluctuated.
 
 Those are parts of my hearing story. What I wanted was a practical way to keep the record of that story together: my audiograms, the dates of my tests, and a way to look back at how the measurements had changed.
 
@@ -18,9 +18,7 @@ The original reports still matter. Sentire is a way to organize and work with th
 
 When my hearing has fluctuated over a decade, a single report is only one part of the record. I wanted a way to look at more than one test and follow the history across dates.
 
-My recent IP-II diagnosis is another part of that personal history. I’m sharing it here as context for why this project matters to me. This article is my account of building a tool for my records, rather than an explanation of the diagnosis or of what causes changes in hearing.
-
-What I could build was a way to make those records easier to keep and revisit.
+Sentire grew from that practical need: making my hearing-test records easier to keep and revisit.
 
 > I wanted a clearer record of my hearing, with my own audiograms at the center of it.
 

@@ -15,7 +15,7 @@ Help people living with hearing loss keep, organize and compare existing hearing
 ## Accuracy and authorship
 
 - Use the author’s chosen public name and a truthful biography. Sentire’s creator currently publishes as **JW**; do not expand those initials or put his full name in visible copy, URLs, feeds or metadata without explicit approval. Never invent medical qualifications, reviewer endorsements, quotes, experiences, studies or product capabilities.
-- Personal stories can describe the author's supplied experience. Do not infer a medical cause from a diagnosis, or expand autobiographical facts without confirmation.
+- Personal stories can describe the author's approved public experience. The creator currently wants diagnosis details kept out of public articles; do not reintroduce them without explicit approval. Do not infer a medical cause from a diagnosis, or expand autobiographical facts without confirmation.
 - Clinical claims need current authoritative sources and appropriately qualified review when interpreting medical evidence. Clearly distinguish individual experience, product documentation, research findings, and treatment guidance.
 - Technology coverage should separate announcements, research, regulatory status and actual availability. Cite primary papers, regulators and manufacturer documentation as appropriate. Date time-sensitive coverage and review it when facts change.
 - Product imports produce draft suggestions that must be checked. Sentire organizes existing measurements; it does not perform a hearing test or make treatment decisions.

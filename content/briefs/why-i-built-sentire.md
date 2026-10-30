@@ -10,9 +10,9 @@
 
 ## Evidence and boundaries
 
-The owner supplied these autobiographical facts: lifelong hearing loss, fluctuating hearing over the past 10–11 years, recent diagnosis of incomplete partition type II, and wanting an easier way to track hearing. Do not invent dates, treatment history, clinic conversations, emotional reactions, or a causal explanation for the fluctuations.
+The owner supplied these autobiographical facts: lifelong hearing loss, fluctuating hearing over the past 10–11 years, and wanting an easier way to track hearing. Do not invent dates, treatment history, clinic conversations, emotional reactions, or a causal explanation for the fluctuations.
 
-Product claims are checked against the current product site and field guide. This is not a clinical explainer; no medical claims about IP-II are introduced. Distinguish imported suggestions from verified measurements and the records application from a hearing test. Do not promise perfect import recognition. Linux is available; Windows remains coming soon.
+Product claims are checked against the current product site and field guide. The owner has chosen not to publish diagnosis details. Do not add specific diagnoses or treatment history without explicit approval. This is not a clinical explainer. Distinguish imported suggestions from verified measurements and the records application from a hearing test. Do not promise perfect import recognition. Linux is available; Windows remains coming soon.
 
 Audience-language research: https://forum.hearingtracker.com/t/tracking-audiogram-changes-over-time/97892 illustrates difficulty comparing reports across years. It is anecdotal research, not search-volume evidence, and is not quoted or reproduced in the article.
 
