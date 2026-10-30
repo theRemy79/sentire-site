@@ -1,0 +1,16 @@
+{
+  "slug": "why-i-built-sentire",
+  "title": "Why I Built Sentire to Track My Hearing History",
+  "description": "Living with lifelong hearing loss and years of fluctuating hearing led me to create Sentire: a private desktop home for audiograms and hearing history.",
+  "excerpt": "A lifetime of hearing loss, a decade of fluctuations, and a simple need: a clearer record of my own hearing. This is the story behind Sentire.",
+  "author": "jeremy-williams",
+  "publishedAt": "2026-10-30T09:26:34-04:00",
+  "updatedAt": "2026-10-30T09:26:34-04:00",
+  "category": "Behind Sentire",
+  "image": "/assets/overview.webp",
+  "imageAlt": "Sentire’s desktop overview showing a hearing-history timeline and charts with fictional example records.",
+  "imageCaption": "The overview in Sentire. All records shown in this product screenshot are fictional.",
+  "draft": false,
+  "imageWidth": 2160,
+  "imageHeight": 1575
+}

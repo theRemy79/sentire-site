@@ -2,6 +2,7 @@ import {cp, mkdir, readFile, rm, writeFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {configuration} from '../src/config.mjs';
+import {buildBlog} from './blog.mjs';
 export const root = fileURLToPath(new URL('../', import.meta.url));
 export async function build() {
   const config = configuration(JSON.parse(await readFile(path.join(root,'site.config.json'),'utf8')));
@@ -20,9 +21,10 @@ export async function build() {
     const pageSEO = config.origin ? `<link rel="canonical" href="${escape(config.origin)}/${slug}/">` : '<meta name="robots" content="noindex,follow">';
     await writeFile(path.join(dist,slug,'index.html'),(await readFile(path.join(root,`src/${slug}.html`),'utf8')).replace('{{SEO}}',pageSEO));
   }
+  const blogRoutes = await buildBlog({root, dist, origin:config.origin});
   await writeFile(path.join(dist,'api/config.json'),JSON.stringify(config));
   await writeFile(path.join(dist,'robots.txt'),config.origin ? `User-agent: *\nAllow: /\nSitemap: ${config.origin}/sitemap.xml\n` : 'User-agent: *\nDisallow: /\n');
-  if (config.origin) await writeFile(path.join(dist,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${escape(config.origin)}/</loc></url><url><loc>${escape(config.origin)}/guide/</loc></url>${['downloads','support','privacy','terms','releases'].map(slug=>`<url><loc>${escape(config.origin)}/${slug}/</loc></url>`).join('')}</urlset>`);
+  if (config.origin) await writeFile(path.join(dist,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${escape(config.origin)}/</loc></url><url><loc>${escape(config.origin)}/guide/</loc></url>${['downloads','support','privacy','terms','releases'].map(slug=>`<url><loc>${escape(config.origin)}/${slug}/</loc></url>`).join('')}${blogRoutes.map(({pathname,modified})=>`<url><loc>${escape(config.origin+pathname)}</loc>${modified?`<lastmod>${escape(modified)}</lastmod>`:''}</url>`).join('')}</urlset>`);
   console.log('Built sentire-site. '+(config.origin ? 'Public origin configured.' : 'Preview: no indexing, no live checkout.'));
   return config;
 }

@@ -100,3 +100,16 @@ purchasing is enabled at https://getsentire.io/buy. The current Stripe catalog
 price is $14.95 USD, one time, including two computer activations.
 Windows remains unavailable; the download and purchase pages say so.
 This launch status supersedes the historical preparation notes above.
+
+## Blog — October 30, 2026
+
+`/blog/` is generated alongside the existing static site by `scripts/blog.mjs`.
+Plain Markdown bodies and separate JSON metadata live in `content/posts/`; author
+records live in `content/authors/`. Each published article requires an editorial /
+keyword brief in `content/briefs/`. None of those source files is copied directly
+into public assets. See [BLOG_GUIDELINES.md](BLOG_GUIDELINES.md) before each post.
+
+The build emits article and author HTML, RSS at `/blog/feed.xml`, canonical and
+social metadata, Blog/BlogPosting/ProfilePage/Breadcrumb structured data, and blog
+sitemap entries. Drafts are excluded. Blog pages need no client JavaScript or CMS.
+Cloudflare crawler controls, GSC and Bing setup remain separate follow-up work.
