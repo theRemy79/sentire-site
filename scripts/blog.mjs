@@ -61,7 +61,7 @@ export async function loadContent(contentRoot) {
 const authorPath = author => `/blog/authors/${author.id}/`;
 const postPath = post => `/blog/${post.slug}/`;
 const header = `<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container blog-header"><a class="brand" href="/" aria-label="Sentire home"><img src="/assets/sentire-logo.svg" width="230" height="64" alt="Sentire"></a><nav aria-label="Main navigation"><a href="/downloads/">Get Sentire</a><a href="/guide/">Field guide</a><a href="/blog/">Blog</a><a href="/support/">Support</a></nav></div></header>`;
-const footer = `<footer class="site-footer container"><p>Sentire · A product by <a href="https://seravio.io">Seravio</a>.<br><span>A personal record, not a diagnosis.</span></p><nav class="policy-links" aria-label="Policies and support"><a href="/blog/">Blog</a><a href="/blog/feed.xml">RSS feed</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a></nav></footer>`;
+const footer = `<footer class="site-footer container"><p>Sentire · A product by <a href="https://seravio.io">Seravio</a>.<br><span>A personal record, not a diagnosis.</span></p><nav class="policy-links" aria-label="Policies and support"><a href="/blog/">Blog</a><a href="/blog/feed.xml">RSS feed</a><a href="/privacy/">Privacy</a><a href="/health-data-privacy/">Consumer health data privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a></nav></footer>`;
 
 function shell({origin, pathname, title, description, image='/assets/social-card.png', type='website', structured=[], extra='', body}) {
   const absolute = value => `${origin}${value}`;
