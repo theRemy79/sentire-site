@@ -1,17 +1,5 @@
 'use strict';
 document.documentElement.classList.add('js');
-const nav = document.querySelector('#main-nav');
-const toggle = document.querySelector('.nav-toggle');
-toggle.hidden = false;
-toggle.addEventListener('click', () => {
-  const open = toggle.getAttribute('aria-expanded') !== 'true';
-  toggle.setAttribute('aria-expanded', String(open));
-  nav.classList.toggle('open',open);
-});
-nav.addEventListener('click',event => {
-  if (event.target.closest('a')) { nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
-});
-nav.addEventListener('keydown',event => {if (event.key === 'Escape') {nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.focus();}});
 const tabs = [...document.querySelectorAll('[data-tab]')];
 document.querySelector('.tour-tabs').hidden = false;
 function selectTab(tab,focus=false) {

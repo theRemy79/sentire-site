@@ -113,3 +113,23 @@ The build emits article and author HTML, RSS at `/blog/feed.xml`, canonical and
 social metadata, Blog/BlogPosting/ProfilePage/Breadcrumb structured data, and blog
 sitemap entries. Drafts are excluded. Blog pages need no client JavaScript or CMS.
 Cloudflare crawler controls, GSC and Bing setup remain separate follow-up work.
+
+## Shared public-page layout
+
+Edit `src/partials/header.html` and `src/partials/footer.html` for site-wide
+navigation. `scripts/layout.mjs` renders them into every public source page and
+blog/article/author page at build time. `public/site-shell.css` and
+`public/site-shell.js` own the common appearance and accessible mobile menu.
+The guide retains its own content typography, search, chapter navigation and
+Start here link. Without JavaScript, navigation remains visible and usable.
+
+The footer uses the official Store badge assets and the validated public
+platform configuration. Windows stays gray/non-clickable while unreleased.
+No personal operator address is added. Transactional purchase, receipt and
+license recovery views remain in the commerce app with their existing focused
+layout and support/policy links. The static `public/license/` placeholder is
+not the live recovery view and is excluded from public-layout assertions.
+
+Run `npm run check`, `npm run build` and the app-venv browser script
+`scripts/check-layout.py`. The latter uses a local preview and never submits
+forms. Existing homepage and guide browser checks cover their content behavior.
