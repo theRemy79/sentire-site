@@ -46,6 +46,9 @@ try:
    page.set_viewport_size({'width':width,'height':1000})
    for path in ['/','/guide/','/support/','/blog/','/privacy/']:
     page.goto(base+path,wait_until='networkidle');assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(path,width)
+    if path in ['/','/guide/','/support/','/privacy/','/blog/']:
+     bounds=page.evaluate("() => {const h=document.querySelector('.shared-header .chrome-container').getBoundingClientRect();return [...document.querySelectorAll('.guide-hero,.edition-note,.search-wrap,.guide-layout,.guide-provenance,main.container,main>.container')].map(e=>{const r=e.getBoundingClientRect();return [r.left-h.left,r.right-h.right]})}")
+     assert all(abs(left)<1 and abs(right)<1 for left,right in bounds),(width,bounds)
     if width<=960:
      toggle=page.get_by_role('button',name='Toggle navigation');expect(toggle).to_be_visible();expect(page.locator('#main-nav')).to_be_hidden()
      toggle.click();expect(page.locator('#main-nav')).to_be_visible();expect(toggle).to_have_attribute('aria-expanded','true')
